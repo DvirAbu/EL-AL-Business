@@ -315,11 +315,11 @@ footer p{margin-top:4px}
   <!-- Worldspan -->
   <div class="gds-panel worldspan">
     <div class="term worldspan">
-      <div class="term-head"><span>פקודת עדכון</span><span dir="ltr">1P · Worldspan</span></div>
+      <div class="term-head"><span>עדכון מספר חברה בהזמנה</span><span dir="ltr">1P · Worldspan</span></div>
       <div class="term-body">
         <div class="cmd-row">
-          <span class="cmd-label">עדכון החברה</span>
-          <span class="cmd-code-wrap"><span class="cmd-code">3SAN1CO<span class="ph ph-tier">XX</span> <span class="ph ph-company">xxxxx</span></span>
+          <span class="cmd-label">פקודת עדכון</span>
+          <span class="cmd-code-wrap"><span class="cmd-code">3SACO<span class="ph-tier">XX</span><span class="ph-company">xxxxx</span></span>
           <button class="copy-btn">העתק</button></span>
         </div>
       </div>
@@ -476,15 +476,16 @@ footer p{margin-top:4px}
     <span class="ico">💰</span>
     <div><b>עמלה — הקלדה ידנית חובה:</b> כאשר אין מחיר הסכם והכרטוס הוא במחיר מערכת (מפורסם), חובה להקליד את העמלה ידנית מיד אחרי התמחור — גם כשהיא <b>0%</b> וגם במעמד <b>שינוי</b>.</div>
   </div>
-  <div class="note" style="margin-top:10px">
-    <span class="ico">🔑</span>
-    <div><b>אותיות היוזר</b> (YY) — לא "אותיות הסוכן": אלו האותיות המופיעות בחתימה ב-<span dir="ltr">RH</span>. לא בטוחים? בדקו מול מחלקת ההדרכה מה אותיות היוזר שלכם. שימו לב: צורת תשלום <span class="mono-hl" dir="ltr">FPCASH</span> תתאפשר <b>אך ורק</b> אם אותיות היוזר תואמות לאותיות <span dir="ltr">LY</span>.</div>
-  </div>
 
   <div class="methods">
 
     <!-- Amadeus Specific Notes -->
     <div class="gds-panel amadeus active">
+      <div class="note" style="margin-top:0;margin-bottom:12px;">
+        <span class="ico">🔑</span>
+        <div><b>אותיות היוזר</b> (YY) — לא "אותיות הסוכן": אלו האותיות המופיעות בחתימה ב-<span dir="ltr">RH</span>. לא בטוחים? בדקו מול מחלקת ההדרכה מה אותיות היוזר שלכם. שימו לב: צורת תשלום <span class="mono-hl" dir="ltr">FPCASH</span> תתאפשר <b>אך ורק</b> אם אותיות היוזר תואמות לאותיות <span dir="ltr">LY</span>.</div>
+      </div>
+      
       <div class="note warn" style="margin-top:0;margin-bottom:16px;">
         <span class="ico">⚠️</span>
         <div><b><span dir="ltr">Tour Code</span> נכנס אוטומטית בתמחור.</b> בדקו: אותיות ה-<span dir="ltr">Sale&amp;Fly</span> מול אותיות היוזר —
@@ -500,32 +501,27 @@ footer p{margin-top:4px}
 
     <!-- Worldspan Specific Notes -->
     <div class="gds-panel worldspan">
-      <div class="note" style="margin-top:0;margin-bottom:16px;">
-        <span class="ico">💡</span>
-        <div>פקודת כרטוס עם הסכם חברה (משלבת את מספר החברה ואותיות היוזר):
-        <span class="mono-hl" dir="ltr">EZ#CLY#IT<span class="ph-company">xxxxx</span>**<span class="ph-agent">YY</span></span>
-        <span style="color:var(--muted);font-size:.82rem">(YY = אותיות היוזר)</span></div>
-      </div>
-    </div>
+      <div class="method" style="margin-top:0;margin-bottom:16px;padding:18px;">
+        <h3 style="color:var(--teal);margin-bottom:10px;font-size:1.05rem;">הנחיות כרטוס ו-QA ל-Worldspan</h3>
+        
+        <p style="margin-bottom:14px;font-size:.9rem;">
+          תמחור עם הקוד המזהה מכניס אוטומטית <b>TKT DSG</b> לדאטא, את קוד החברה ל-<b>Endorsement</b>, ומזין <b>Tour Code</b>.
+        </p>
 
-    <div class="method">
-      <h3>כרטוס אוטומטי (תמחור ממוכן)</h3>
-      <p>בכרטוס באמצעות <b>קוד הזיהוי של החברה</b>, המידע נכנס אוטומטית אל השדות:</p>
-      <div class="fields">
-        <div class="field">
-          <div class="fname">ENDORSEMENT</div>
-          <div class="fval">שם החברה וקוד התמחור</div>
-          <div class="fex">HELMANS CORP/CPR03</div>
+        <div class="cmd-row" style="background:var(--navy-deep);border:1px solid var(--navy-line);border-radius:10px;padding:10px 14px;margin-bottom:14px;">
+          <span class="cmd-label" style="max-width:100%;margin-bottom:6px;display:block;">כרטוס עם מספר חברה ואותיות סוכן:</span>
+          <span class="cmd-code-wrap"><span class="cmd-code" style="font-size:1rem;">EZ#CLY#K0#ITCOM<span class="ph-company">xxxxx</span>//<span class="ph-agent">YY</span></span>
+          <button class="copy-btn">העתק</button></span>
         </div>
-        <div class="field">
-          <div class="fname">FARE BASIS</div>
-          <div class="fval">קוד התמחור (צמוד)</div>
-          <div class="fex">MF3PR/CPR03</div>
+
+        <div class="note warn" style="margin-top:0;margin-bottom:12px;padding:12px;">
+          <span class="ico">⚠️</span>
+          <div style="font-size:.85rem;"><b>סכנת ADM!</b> חובה להשתמש בפורמט המלא המוצג כאן. כרטוס רק עם שתי אותיות ידרוס את ה-Tour Code ויגרור ADM.</div>
         </div>
-        <div class="field">
-          <div class="fname">TOUR CODE</div>
-          <div class="fval">מספר החברה</div>
-          <div class="fex">COM12919</div>
+
+        <div class="note" style="margin-top:0;padding:12px;">
+          <span class="ico">💡</span>
+          <div style="font-size:.85rem;"><b>חריג (מחייב QA):</b> סוכן שאותיות היוזר שלו תואמות לאותיות LY <b>והוא זה שפתח את ההזמנה</b>, יכול לכרטס עם <span class="mono-hl" dir="ltr">EZ#CLY#K0</span> <b>אך ורק</b> אם הוא מוודא שרואים את ה-Tour Code בדאטא והוא לא נדרס.</div>
         </div>
       </div>
     </div>
