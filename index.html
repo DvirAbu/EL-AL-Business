@@ -135,6 +135,10 @@ header{
   text-transform:uppercase;
 }
 .smart-input:focus{outline:none;border-color:var(--teal);background:#fff;box-shadow:0 0 0 3px rgba(27,176,206,.15)}
+#inp-pricing{border-inline-start:4px solid #ffb020}
+#inp-company{border-inline-start:4px solid var(--teal)}
+#inp-tier{border-inline-start:4px solid #a78bfa}
+#inp-agent{border-inline-start:4px solid #ec4899}
 .smart-input::placeholder{color:var(--muted);font-weight:400;font-size:.8rem;font-family:'Heebo',sans-serif;text-transform:none}
 .smart-clear{
   font-family:'Heebo',sans-serif;font-size:.75rem;font-weight:700;
@@ -186,8 +190,13 @@ section{margin-top:40px;scroll-margin-top:140px}
 .cmd-code-wrap{display:flex;align-items:center;gap:8px;direction:ltr;flex:1;justify-content:flex-start;min-width:0}
 .cmd-code{font-size:.92rem;font-weight:600;direction:ltr;unicode-bidi:embed;word-break:break-all;}
 .cmd-code .ph{background:rgba(255,200,97,.2);color:var(--amber);border-radius:4px;padding:0 3px;font-weight:800;}
-.cmd-code .ph.filled{background:rgba(74,222,128,.18);color:var(--green)}
-.mono-hl .filled{background:rgba(21,128,61,.12);color:var(--green-ink)}
+/* placeholder colors match their smart-bar input */
+.term .ph-company{background:rgba(27,176,206,.28);color:#8fe8ff}
+.term .ph-tier{background:rgba(167,139,250,.28);color:#d9ccff}
+.term .ph-agent{background:rgba(236,72,153,.25);color:#ffb3d6}
+.mono-hl .ph-company{background:rgba(27,176,206,.15);color:var(--teal-ink);border-radius:4px;padding:0 3px}
+.mono-hl .ph-agent{background:rgba(236,72,153,.12);color:#b0316e;border-radius:4px;padding:0 3px}
+.ph.filled,.mono-hl .filled{outline:1.5px solid currentColor;outline-offset:1px}
 
 /* GDS Themes */
 .term.amadeus{background:#0b1f5e}
