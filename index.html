@@ -478,7 +478,7 @@ footer p{margin-top:4px}
   </div>
   <div class="note" style="margin-top:10px">
     <span class="ico">🔑</span>
-    <div><b>אותיות היוזר</b> (YY) — לא "אותיות הסוכן": אלו האותיות המופיעות בחתימה ב-<span dir="ltr">RH</span>. לא בטוחים? בדקו מול מחלקת ההדרכה מה אותיות היוזר שלכם.</div>
+    <div><b>אותיות היוזר</b> (YY) — לא "אותיות הסוכן": אלו האותיות המופיעות בחתימה ב-<span dir="ltr">RH</span>. לא בטוחים? בדקו מול מחלקת ההדרכה מה אותיות היוזר שלכם. שימו לב: צורת תשלום <span class="mono-hl" dir="ltr">FPCASH</span> תתאפשר <b>אך ורק</b> אם אותיות היוזר תואמות לאותיות <span dir="ltr">LY</span>.</div>
   </div>
 
   <div class="methods">
@@ -487,20 +487,15 @@ footer p{margin-top:4px}
     <div class="gds-panel amadeus active">
       <div class="note warn" style="margin-top:0;margin-bottom:16px;">
         <span class="ico">⚠️</span>
-        <div><b>עדכון ה-<span dir="ltr">Tour Code</span> — לפי הסדר:</b>
-        <ol style="margin:6px 22px 0 0;padding:0;font-size:.88rem;color:var(--muted)">
-          <li><b style="color:var(--white)">קודם להסיר</b> את ה-<span dir="ltr">Tour Code</span> שנכנס אוטומטית עם התמחור — ניתן לזהות ב-<span dir="ltr">RTF</span> ובשורת ה-<span dir="ltr">FT</span>.</li>
-          <li>להזין את אותו מספר <span dir="ltr">Tour Code</span> עם COM בהתחלה ואותיות היוזר:
-          <span class="mono-hl" dir="ltr" style="display:inline-block;margin-top:2px;">FT*COM<span class="ph-company amadeus-note-company">xxxxx</span>//<span class="ph-agent amadeus-note-agent">YY</span></span>
-          <span style="font-size:.82rem">(YY = אותיות היוזר)</span></li>
-          <li>לבצע <b style="color:var(--white)">QA</b> — האחריות על הסוכן המבצע בלבד.</li>
-        </ol>
-        <div style="margin-top:8px;font-size:.85rem;color:var(--red)">אם לא מבטלים קודם את מה שנכנס אוטומטית — יהיו שני טור-קודים בכרטיס והמערכת תיקח את <b>הראשון</b> (האוטומטי).</div></div>
+        <div><b><span dir="ltr">Tour Code</span> נכנס אוטומטית בתמחור.</b> בדקו: אותיות ה-<span dir="ltr">Sale&amp;Fly</span> מול אותיות היוזר —
+        <div style="margin-top:8px;display:grid;gap:6px;font-size:.88rem">
+          <div><span style="color:var(--green);font-weight:800">✓ תואמות</span> — לא נוגעים. מכרטסים עם <span dir="ltr">CASH</span> והנקודות נמשכות לפי היוזר שסגר את ההזמנה.</div>
+          <div><span style="color:var(--red);font-weight:800">✗ לא תואמות</span> — מיד אחרי התמחור:
+          <span class="mono-hl" dir="ltr">RTF</span> ← <span class="mono-hl" dir="ltr">XE</span> לשורת ה-FT האוטומטית ← <span class="mono-hl" dir="ltr">FT*COM<span class="ph-company amadeus-note-company">xxxxx</span>//<span class="ph-agent amadeus-note-agent">YY</span></span> ← סגירה. לבצע QA — אחריות הסוכן המבצע.</div>
+        </div>
+        <div style="margin-top:8px;font-size:.85rem;color:var(--red)">לא ביטלתם את השורה האוטומטית? יהיו שני טור-קודים והמערכת תיקח את <b>הראשון</b>.</div></div>
       </div>
-      <div class="note" style="margin-top:0;margin-bottom:16px;">
-        <span class="ico">💡</span>
-        <div>צורת תשלום <span class="mono-hl" dir="ltr">FPCASH</span> תתאפשר <b>אך ורק</b> אם אותיות היוזר תואמות לאותיות <span dir="ltr">LY</span>.</div>
-      </div>
+
     </div>
 
     <!-- Worldspan Specific Notes -->
