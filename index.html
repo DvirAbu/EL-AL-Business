@@ -139,6 +139,7 @@ header{
 #inp-company{border-inline-start:4px solid var(--teal)}
 #inp-tier{border-inline-start:4px solid #a78bfa}
 #inp-agent{border-inline-start:4px solid #ec4899}
+.smart-input.invalid{border-color:var(--red);box-shadow:0 0 0 3px rgba(214,69,69,.15);color:var(--red)}
 .smart-input::placeholder{color:var(--muted);font-weight:400;font-size:.8rem;font-family:'Heebo',sans-serif;text-transform:none}
 .smart-clear{
   font-family:'Heebo',sans-serif;font-size:.75rem;font-weight:700;
@@ -148,7 +149,7 @@ header{
 .smart-clear:hover{color:var(--red);border-color:var(--red)}
 
 main{max-width:860px;margin:0 auto;padding:24px 20px 80px}
-section{margin-top:40px;scroll-margin-top:140px}
+section{margin-top:40px;scroll-margin-top:calc(var(--sticky-h,140px) + 14px)}
 .sec-head{display:flex;align-items:center;gap:14px;margin-bottom:8px}
 .sec-num{
   flex:none;width:34px;height:34px;border-radius:10px;
@@ -190,6 +191,7 @@ section{margin-top:40px;scroll-margin-top:140px}
 .cmd-code-wrap{display:flex;align-items:center;gap:8px;direction:ltr;flex:1;justify-content:flex-start;min-width:0}
 .cmd-code{font-size:.92rem;font-weight:600;direction:ltr;unicode-bidi:embed;word-break:break-all;}
 .cmd-code .ph{background:rgba(255,200,97,.2);color:var(--amber);border-radius:4px;padding:0 3px;font-weight:800;}
+.cmd-code .ex{border-bottom:1px dashed currentColor;opacity:.8}
 /* placeholder colors match their smart-bar input */
 .term .ph-company{background:rgba(27,176,206,.28);color:#8fe8ff}
 .term .ph-tier{background:rgba(167,139,250,.28);color:#d9ccff}
@@ -283,10 +285,10 @@ footer p{margin-top:4px}
       השלמה חכמה:
     </div>
     <div class="smart-inputs">
-      <input type="text" id="inp-pricing" class="smart-input" placeholder="קוד מזהה חברה" aria-label="קוד מזהה חברה">
-      <input type="text" id="inp-company" class="smart-input" placeholder="מספר חברה" aria-label="מספר חברה">
+      <input type="text" id="inp-pricing" class="smart-input" placeholder="קוד מזהה — תמחור" aria-label="קוד מזהה חברה — לתמחור מחירון עסקי" title="לתמחור מחירון עסקי">
+      <input type="text" id="inp-company" class="smart-input" placeholder="מספר חברה — זיהוי" aria-label="מספר חברה — זיהוי ו-Tour Code" title="זיהוי הזמנה ו-Tour Code">
       <input type="text" id="inp-tier" class="smart-input" placeholder="(DS) דירוג" aria-label="דירוג חברה" maxlength="2">
-      <input type="text" id="inp-agent" class="smart-input" placeholder="אותיות יוזר" aria-label="אותיות יוזר">
+      <input type="text" id="inp-agent" class="smart-input" placeholder="אותיות יוזר" aria-label="אותיות יוזר" maxlength="2">
       <button class="smart-clear" id="smart-clear" type="button">ניקוי</button>
     </div>
   </div>
@@ -350,7 +352,8 @@ footer p{margin-top:4px}
 
 <section id="pricing">
   <div class="sec-head"><div class="sec-num">2</div><h2>תמחור מחירון עסקי</h2></div>
-  <p class="sec-sub">בחר את פקודת התמחור המתאימה. התמחור מתבסס על הקוד המזהה.</p>
+  <p class="sec-sub">בחר את פקודת התמחור המתאימה. התמחור מתבסס על הקוד המזהה.
+  <span style="display:block;margin-top:4px;font-size:.85rem">היעד (<span dir="ltr" style="font-family:var(--mono)">TLVNYC</span>) והתאריך (<span dir="ltr" style="font-family:var(--mono)">03NOV</span>) בפקודות הצפייה הם <b>דוגמה בלבד</b> — עדכנו לפי ההזמנה.</span></p>
 
   <!-- Amadeus -->
   <div class="gds-panel amadeus active">
@@ -359,7 +362,7 @@ footer p{margin-top:4px}
       <div class="term-body">
         <div class="cmd-row">
           <span class="cmd-label">צפייה במחירים</span>
-          <span class="cmd-code-wrap"><span class="cmd-code">FQDTLVNYC/03NOV/ALY/R,U*<span class="ph ph-pricing">xxxxx</span></span>
+          <span class="cmd-code-wrap"><span class="cmd-code">FQD<span class="ex">TLVNYC</span>/<span class="ex">03NOV</span>/ALY/R,U*<span class="ph ph-pricing">xxxxx</span></span>
           <button class="copy-btn">העתק</button></span>
         </div>
         <div class="cmd-row main-cmd">
@@ -388,7 +391,7 @@ footer p{margin-top:4px}
       <div class="term-body">
         <div class="cmd-row">
           <span class="cmd-label">צפייה במחירים</span>
-          <span class="cmd-code-wrap"><span class="cmd-code">FQTLVNYC03NOV-LY¥UI<span class="ph ph-pricing">xxxxx</span></span>
+          <span class="cmd-code-wrap"><span class="cmd-code">FQ<span class="ex">TLVNYC</span><span class="ex">03NOV</span>-LY¥UI<span class="ph ph-pricing">xxxxx</span></span>
           <button class="copy-btn">העתק</button></span>
         </div>
         <div class="cmd-row main-cmd">
@@ -403,7 +406,12 @@ footer p{margin-top:4px}
         </div>
         <div class="cmd-row">
           <span class="cmd-label">שילוב Publish over the water</span>
-          <span class="cmd-code-wrap"><span class="cmd-code">WPC-LY¥ALY<br>WPC-LY¥ALY¥I<span class="ph ph-pricing">xxxxx</span>¥XC</span>
+          <span class="cmd-code-wrap"><span class="cmd-code">WPC-LY¥ALY</span>
+          <button class="copy-btn">העתק</button></span>
+        </div>
+        <div class="cmd-row">
+          <span class="cmd-label">שילוב Publish — עם קוד התמחור</span>
+          <span class="cmd-code-wrap"><span class="cmd-code">WPC-LY¥ALY¥I<span class="ph ph-pricing">xxxxx</span>¥XC</span>
           <button class="copy-btn">העתק</button></span>
         </div>
       </div>
@@ -417,7 +425,7 @@ footer p{margin-top:4px}
       <div class="term-body">
         <div class="cmd-row">
           <span class="cmd-label">צפייה במחירים</span>
-          <span class="cmd-code-wrap"><span class="cmd-code">4FTLVNYCSR-LY/L03NOV/@@C<span class="ph ph-pricing">xxxxx</span>.AC</span>
+          <span class="cmd-code-wrap"><span class="cmd-code">4F<span class="ex">TLVNYC</span>SR-LY/L<span class="ex">03NOV</span>/@@C<span class="ph ph-pricing">xxxxx</span>.AC</span>
           <button class="copy-btn">העתק</button></span>
         </div>
         <div class="cmd-row main-cmd">
@@ -542,6 +550,14 @@ footer p{margin-top:4px}
 const btns = document.querySelectorAll('.gds-btn');
 const panels = document.querySelectorAll('.gds-panel');
 
+// keep anchor offsets in sync with the sticky bar height (grows on mobile)
+function setStickyH() {
+  const el = document.querySelector('.sticky-wrap');
+  if (el) document.documentElement.style.setProperty('--sticky-h', el.offsetHeight + 'px');
+}
+window.addEventListener('resize', setStickyH);
+setStickyH();
+
 // GDS Switcher
 btns.forEach(btn => {
   btn.addEventListener('click', () => {
@@ -561,10 +577,19 @@ const inpTier = document.getElementById('inp-tier');
 const inpAgent = document.getElementById('inp-agent');
 const inputs = [inpPricing, inpCompany, inpTier, inpAgent];
 
-const DEFAULTS = { pricing: 'xxxxx', company: 'xxxxx', tier: 'XX', agent: 'YY' };
+const DEFAULTS = { pricing: 'XXXXX', company: 'XXXXX', tier: 'XX', agent: 'YY' };
+const VALID_TIERS = ['DS', 'DG', 'DP'];
+
+// keep only characters that are valid for each field
+const SANITIZE = {
+  'inp-pricing': v => v.replace(/[^A-Za-z0-9]/g, ''),
+  'inp-company': v => v.replace(/\D/g, ''),
+  'inp-tier':    v => v.replace(/[^A-Za-z]/g, ''),
+  'inp-agent':   v => v.replace(/[^A-Za-z]/g, '')
+};
 
 function setPh(selector, value, def) {
-  const filled = value !== def;
+  const filled = value.toUpperCase() !== def.toUpperCase();
   document.querySelectorAll(selector).forEach(el => {
     el.textContent = value;
     el.classList.toggle('filled', filled);
@@ -572,10 +597,15 @@ function setPh(selector, value, def) {
 }
 
 function updateFields() {
-  const vPricing = inpPricing.value.trim().toUpperCase() || DEFAULTS.pricing;
-  const vCompany = inpCompany.value.trim().toUpperCase() || DEFAULTS.company;
+  const vCompany = inpCompany.value.trim().toUpperCase() || 'xxxxx';
+  const vPricing = inpPricing.value.trim().toUpperCase() || 'xxxxx';
   const vTier = inpTier.value.trim().toUpperCase() || DEFAULTS.tier;
   const vAgent = inpAgent.value.trim().toUpperCase() || DEFAULTS.agent;
+
+  // tier is only valid as DS / DG / DP
+  const tierInvalid = vTier !== DEFAULTS.tier && !VALID_TIERS.includes(vTier);
+  inpTier.classList.toggle('invalid', tierInvalid);
+  window.__tierState = { value: vTier, invalid: tierInvalid };
 
   setPh('.ph-pricing', vPricing, DEFAULTS.pricing);
   setPh('.ph-company', vCompany, DEFAULTS.company);
@@ -596,7 +626,11 @@ function updateFields() {
   });
 }
 
-inputs.forEach(input => input.addEventListener('input', updateFields));
+inputs.forEach(input => input.addEventListener('input', () => {
+  const clean = SANITIZE[input.id](input.value);
+  if (clean !== input.value) input.value = clean;
+  updateFields();
+}));
 
 document.getElementById('smart-clear').addEventListener('click', () => {
   inputs.forEach(i => i.value = '');
@@ -610,22 +644,26 @@ updateFields();
 // sending a command with xxxxx / XX placeholders into a live terminal
 const hasPlaceholders = t => /XXXXX/i.test(t) || /COXX/.test(t);
 
+function flash(b, msg, cls) {
+  b.textContent = msg; if (cls) b.classList.add(cls);
+  setTimeout(() => { b.textContent = 'העתק'; b.classList.remove('copied'); }, 1800);
+}
+
 document.querySelectorAll('.copy-btn').forEach(b => {
   b.addEventListener('click', async () => {
     const text = b.dataset.copy;
-    if (hasPlaceholders(text)) {
-      b.textContent = 'הזן קוד למעלה';
-      setTimeout(() => b.textContent = 'העתק', 1800);
-      return;
-    }
+    if (hasPlaceholders(text)) return flash(b, 'הזן קוד למעלה');
+    const t = window.__tierState;
+    if (t && t.invalid && text.includes('CO' + t.value)) return flash(b, 'דירוג: DS/DG/DP בלבד');
     try {
       await navigator.clipboard.writeText(text);
-      b.textContent = 'הועתק ✓'; b.classList.add('copied');
-      setTimeout(() => { b.textContent = 'העתק'; b.classList.remove('copied'); }, 1600);
+      flash(b, 'הועתק ✓', 'copied');
     } catch (e) {
       const ta = document.createElement('textarea'); ta.value = text;
-      document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove();
-      b.textContent = 'הועתק ✓'; setTimeout(() => b.textContent = 'העתק', 1600);
+      document.body.appendChild(ta); ta.select();
+      const ok = document.execCommand('copy');
+      ta.remove();
+      ok ? flash(b, 'הועתק ✓', 'copied') : flash(b, 'ההעתקה נכשלה');
     }
   });
 });
